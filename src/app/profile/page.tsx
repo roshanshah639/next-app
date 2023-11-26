@@ -12,17 +12,13 @@ const Profile = () => {
   const logout = async () => {
     try {
       await axios.get("/api/users/logout");
-
       toast.success("Logout success");
-
       router.push("/login");
     } catch (error: any) {
       console.log(error.message);
-
       toast.error(error.message);
     }
   };
-
   const getUserDetails = async () => {
     const res = await axios.get("/api/users/me");
     console.log(res.data);
@@ -33,7 +29,7 @@ const Profile = () => {
       <h1>Profile</h1>
       <hr />
       <p>Profile Page</p>
-      <h2 className="p-3 rounded bg-green-500">
+      <h2 className="p-3 rounded bg-green-500 text-white">
         {data === "Nothing" ? (
           "Nothing"
         ) : (
@@ -47,12 +43,14 @@ const Profile = () => {
       >
         Logout
       </button>
+
       <button
         onClick={getUserDetails}
         className="bg-green-500 mt-4 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg"
       >
-        Get User Details
+        Get Details
       </button>
+
     </div>
   );
 };
